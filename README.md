@@ -1,5 +1,37 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Strava Personal Tracker
+
+Connect to Strava, store activities in Supabase, and visualize distances with a D3 grouped bar chart for:
+
+- Last 7 days
+- This calendar month
+- Year to date
+
+### Setup
+
+1. Create a Supabase project and run `supabase/schema.sql` in the SQL editor.
+2. Create a Strava API application. Set callback to your deployed URL or `http://localhost:3000/api/strava/callback` for local.
+3. Configure `.env.local`:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=...
+SUPABASE_SERVICE_ROLE_KEY=...
+
+NEXT_PUBLIC_STRAVA_CLIENT_ID=...
+STRAVA_CLIENT_SECRET=...
+NEXT_PUBLIC_STRAVA_REDIRECT_URI=http://localhost:3000/api/strava/callback
+```
+
+4. Dev server:
+
+```
+npm install
+npm run dev
+```
+
+5. In the UI, click Connect Strava, enter your Athlete ID, click Sync, and view the D3 dashboard.
+
 ## Getting Started
 
 First, run the development server:
